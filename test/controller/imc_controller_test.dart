@@ -7,7 +7,7 @@ void main() {
     imc.altura = 0;
     imc.peso = 85;
     imc.atribuirResultadoTexto();
-    expect(imc.texto, 'Valores digitados estão incorretos');
+    expect(imc.texto, 'Por favor, digite algo válido');
   });
   test('Testar se o valor atribuido é menor que 18.5', () {
     var imc = ImcController();
