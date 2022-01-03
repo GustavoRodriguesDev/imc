@@ -13,7 +13,7 @@ class ImcController extends ChangeNotifier {
     var imc = pessoa.calcularImc();
     texto = imc.toStringAsFixed(2);
     if (imc <= 1) {
-      texto = 'Valores digitados estão incorretos';
+      texto = 'Por favor, digite algo válido';
     } else if (imc < 18.5) {
       texto = 'Seu imc é $texto, Abaixo do peso normal';
     } else if (imc < 24.9) {

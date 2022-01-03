@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:imc/controller/imc_controller.dart';
@@ -20,7 +20,9 @@ class HomePage extends StatelessWidget {
             children: [
               SizedBox(height: 15),
               TextField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  labelText: 'Altura',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
@@ -28,12 +30,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 onChanged: (value) {
-                  controller.altura = double.tryParse(value) ?? 0;
+                  controller.altura =
+                      double.tryParse(value.replaceAll(',', '.')) ?? 0;
                 },
               ),
               SizedBox(height: 15),
               TextField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  labelText: 'Peso',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
@@ -41,12 +46,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 onChanged: (value) {
-                  controller.peso = double.tryParse(value) ?? 0;
+                  controller.peso =
+                      double.tryParse(value.replaceAll(',', '.')) ?? 0;
                 },
               ),
               SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
+                  print(controller.altura);
+                  print(controller.peso);
                   controller.atribuirResultadoTexto();
                 },
                 child: Text('Calcular Imc'),
@@ -55,7 +63,7 @@ class HomePage extends StatelessWidget {
               AnimatedBuilder(
                   animation: controller,
                   builder: (context, child) {
-                    return Text(controller.texto);
+                    return Text(controller.texto.replaceAll('.', ','));
                   }),
             ],
           ),
