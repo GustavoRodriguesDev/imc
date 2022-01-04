@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
               AnimatedBuilder(
                   animation: controller,
                   builder: (context, child) {
-                    return Text(controller.texto.replaceAll('.', ','));
+                    return Text(controller.texto);
                   }),
             ],
           ),

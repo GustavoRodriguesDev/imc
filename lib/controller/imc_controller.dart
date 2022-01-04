@@ -15,17 +15,17 @@ class ImcController extends ChangeNotifier {
     if (imc <= 1) {
       texto = 'Por favor, digite algo válido';
     } else if (imc < 18.5) {
-      texto = 'Seu imc é $texto, Abaixo do peso normal';
+      texto = 'Magreza';
     } else if (imc < 24.9) {
-      texto = 'Seu imc é $texto, peso normal';
+      texto = 'Normal';
     } else if (imc < 29.9) {
-      texto = 'Seu imc é $texto, excesso peso';
+      texto = 'Sobrepeso';
     } else if (imc < 34.9) {
-      texto = 'Seu imc é $texto, obesidade 1';
+      texto = 'Sobrepeso 1';
     } else if (imc < 39.9) {
-      texto = 'Seu imc é $texto, obesidade 2';
+      texto = 'Sobrepeso 2';
     } else {
-      texto = 'Seu imc é $texto, obesidade 3';
+      texto = 'Sobrepeso 3 / Morbida';
     }
     notifyListeners();
   }

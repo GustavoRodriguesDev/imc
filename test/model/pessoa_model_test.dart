@@ -7,12 +7,12 @@ void main() {
     var resultado = pessoa.calcularImc();
     expect(resultado, 28.73174689021093);
   });
-  test('se peso menor que 1, deve retornar -1', () {
+  test('deve retornar -1, caso peso menor que 1', () {
     var pessoa = PessoaModel(peso: 0, altura: 1.72);
     var resultado = pessoa.calcularImc();
     expect(resultado, -1);
   });
-  test('se altura for menor que 1, deve retornar 1', () {
+  test('deve retornar -1, caso altura for menor que 1', () {
     var pessoa = PessoaModel(peso: 85, altura: 0);
     var resultado = pessoa.calcularImc();
     expect(resultado, -1);
