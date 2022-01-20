@@ -9,6 +9,8 @@ class HomePage extends StatelessWidget {
   final controller = ImcController();
   @override
   Widget build(BuildContext context) {
+    String peso = '';
+    String altura = '';
     return Scaffold(
       appBar: AppBar(
         title: Text('IMC'),
@@ -30,8 +32,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 onChanged: (value) {
-                  controller.altura =
-                      double.tryParse(value.replaceAll(',', '.')) ?? 0;
+                  controller.altura = value;
                 },
               ),
               SizedBox(height: 15),
@@ -46,15 +47,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 onChanged: (value) {
-                  controller.peso =
-                      double.tryParse(value.replaceAll(',', '.')) ?? 0;
+                  controller.peso = value;
                 },
               ),
               SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
-                  print(controller.altura);
-                  print(controller.peso);
                   controller.atribuirResultadoTexto();
                 },
                 child: Text('Calcular Imc'),
@@ -63,7 +61,7 @@ class HomePage extends StatelessWidget {
               AnimatedBuilder(
                   animation: controller,
                   builder: (context, child) {
-                    return Text(controller.texto);
+                    return Text('${controller.texto}');
                   }),
             ],
           ),
